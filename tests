@@ -1,0 +1,15 @@
+feedback [read "3C", read "4H"] [read "4H", read "3C"] == (2,0,2,0,2)
+feedback [read "3C", read "4H"] [read "3C", read "3H"] == (1,0,1,1,2)
+feedback [read "3D", read "3H"] [read "3S", read "3C"] == (0,0,2,0,0)
+feedback [read "3C", read "4H"] [read "2H", read "3H"] == (0,0,1,1,1)
+feedback [read "AC", read "2C"] [read "3C", read "4H"] == (0,1,0,1,1)
+
+--if correct cards
+feedback [read "AC", read "2C"] [read "AC", read "2C"] == (2,0,2,0,2)
+feedback [read "AC", read "2C"] [read "AC", read "4H"] == (1,0,1,1,1)
+feedback [read "AC", read "2C"] [read "5D", read "4H"] == (0,0,0,0,0)
+
+--if correct lower/higher rank, also ends up checking if checks correct rank
+feedback [read "AC", read "5C"] [read "7D", read "4H"] == (0,1,0,0,0)
+feedback [read "AC", read "5C"] [read "7D", read "5H"] == (0,0,1,0,0)
+feedback [read "AC", read "5C"] [read "7D", read "6H"] == (0,0,0,0,0)
